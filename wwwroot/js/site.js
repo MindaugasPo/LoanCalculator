@@ -6,7 +6,7 @@
         isValid = false;
     }
     var amountFee = $("#administration-amount").val();
-    if (!amountFee || isNaN(amountFee)) {
+    if (!amountFee || isNaN(amountFee) || amountFee < 0) {
         $("#administration-amount-error").removeClass("d-none");
         isValid = false;
     }
@@ -21,7 +21,7 @@
         isValid = false;
     }
     var loanAmount = $("#loan-amount").val();
-    if (!loanAmount || isNaN(loanAmount || loanAmount < 0)) {
+    if (!loanAmount || isNaN(loanAmount) || loanAmount < 0) {
         $("#loan-amount-error").removeClass("d-none");
         isValid = false;
     }
