@@ -76,3 +76,7 @@ body {
 #output-container {
     margin-top: 15px;
 }
+
+.form-error {
+    color: red;
+}
