@@ -27,7 +27,9 @@ namespace LoanCalculator.Services
                 discountFactor = discountFactorNumerator / discountFactorDenominator;
             }
 
-            return loanRequest.LoanAmount / discountFactor;
+            return discountFactor == 0
+                ? 0
+                : loanRequest.LoanAmount / discountFactor;
         }
 
         public double CalculateAdministrationFee(LoanRequestDetailsDto loanRequest)
@@ -42,8 +44,14 @@ namespace LoanCalculator.Services
             var totalAccruedAmount = loanRequest.LoanAmount * (1 + loanRequest.LoanDuration * loanRequest.InterestRate / 100);
             var interestAccrued = totalAccruedAmount - loanRequest.LoanAmount;
             var administrationFee = CalculateAdministrationFee(loanRequest);
-            var APR = 100 * ((administrationFee + interestAccrued) / loanRequest.LoanAmount) / loanRequest.LoanDuration;
-            return APR;
+
+            double apr = 0;
+            if (loanRequest.LoanAmount != 0 || loanRequest.LoanDuration != 0)
+            {
+                apr = 100 * ((administrationFee + interestAccrued) / loanRequest.LoanAmount) / loanRequest.LoanDuration;
+            }
+
+            return apr;
         }
 
         public double CalculateTotalInterestPaid(double monthlyPayment, double loanDuration, double loanAmount)
