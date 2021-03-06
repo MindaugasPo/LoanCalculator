@@ -1,21 +1,45 @@
 ﻿
 <div class="row">
-    <div class="col-6">
-        <div id="input-container" class="row">
-            <div class="col-12 col-sm-8">
-                <input id="command" type="text" class="form-control" value=""/>
+    <div class="col-8">
+        <form id="loan-details" class="row">
+            <div class="form-group col-12">
+                <div class="row">
+                    <div class="form-group col-12 col-sm-6">
+                        <label for="administration-fixed">Fixed administration fee (%)</label>
+                        <input id="administration-fixed" name="administration-fixed" type="text" class="form-control" value="1" />
+                    </div>
+                    <div class="form-group col-12 col-sm-6">
+                        <label for="administration-amount">Administration fee amount</label>
+                        <input id="administration-amount" name="administration-amount" type="text" class="form-control" value="10000" />
+                    </div>
+                </div>
             </div>
-            <div class="col-12 col-sm-4">
+            <div class="form-group col-12">
+                <div class="row">
+                    <div class="form-group col-12 col-sm-6">
+                        <label for="interest-rate">Interest rate</label>
+                        <input id="interest-rate" name="interest-rate" type="text" class="form-control" value="5" />
+                    </div>
+                    <div class="form-group col-12 col-sm-6">
+                        <label for="loan-duration">Loan duration (years)</label>
+                        <input id="loan-duration" name="loan-duration" type="text" class="form-control" value="10" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-12">
+                <label for="loan-amount">Loan amount</label>
+                <input id="loan-amount" name="loan-amount" type="text" class="form-control" value="500000" />
+            </div>
+            <div class="col-12">
                 <button id="execute" class="btn btn-primary">Calculate</button>
             </div>
-        </div>
+        </form>
         <div id="output-container" class="row">
             <div id="output-container-content" class="col-12">
                 <p>output-container</p>
             </div>
         </div>
     </div>
-    <div id="history-container" class="col-6">
-        <p>history-container</p>
+    <div id="history-container" class="col-4">
     </div>
 </div>
